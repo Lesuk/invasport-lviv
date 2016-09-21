@@ -1,9 +1,9 @@
 site_url: 'http://invasport.lviv.ua'
 site_title: 'Інваспорт Львів'
 site_description: 'Львівський обласний центр фізичної культури та спорту інвалідів'
-site_author: ''
-site_author_profile: ''
-site_author_image: ''
+# site_author: ''
+# site_author_profile: ''
+# site_author_image: ''
 reverse_title: true
 social_links:
   twitter: ''
