@@ -1,17 +1,23 @@
-doctype html
-html
+doctype 5
+html.no-js lang=""
   head
     meta[charset="utf-8"]
-    meta[http-equiv="X-UA-Compatible" content="IE=edge;chrome=1"]
-    meta[name="viewport" content="initial-scale=1.0, user-scalable=no"]
+    /[if IE]
+      meta[http-equiv="X-UA-Compatible" content="IE=edge;chrome=1"]
+    meta[name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width, maximum-scale=1"]
+    meta[content="black" name="apple-mobile-web-app-status-bar-style"]
+    
     title
       = format_title
     meta[description="#{page_description}"]
-    = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
-    link[rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"]
-    = javascript_include_tag :all
+        
+    /! Favicons
+    / TODO: Add favicons for all devices
     = favicon_tag '/images/favicon.png'
-    = partial "partials/analytics"
+    = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
+    
+    = stylesheet_link_tag :app
+
   body
     header
       = partial "partials/header"
@@ -35,3 +41,6 @@ html
           = partial "partials/social"
     footer
       = partial "partials/footer"
+    
+    = javascript_include_tag :index
+    = partial "partials/analytics"

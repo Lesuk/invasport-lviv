@@ -57,8 +57,6 @@ set :markdown,
     smartypants: true,
     input: 'GFM'
 
-# Ignore stylesheets because they are handled by webpack
-ignore 'stylesheets/*'
 
 # Build-specific configuration
 configure :build do
@@ -80,7 +78,6 @@ configure :build do
   activate :gzip
 end
 
-# Reload the browser automatically whenever files change
 configure :development do
   activate :livereload
 end
@@ -115,8 +112,11 @@ activate :s3_sync do |s3_sync|
   s3_sync.version_bucket             = false
 end
 
+
 activate :external_pipeline,
   name: :webpack,
-  command: build? ? './node_modules/webpack/bin/webpack.js -p --bail' : './node_modules/webpack/bin/webpack.js --watch -d',
+  command: build? ?
+  "./node_modules/webpack/bin/webpack.js --bail -p" :
+  "./node_modules/webpack/bin/webpack.js --watch -d --progress --color",
   source: ".tmp/dist",
   latency: 1

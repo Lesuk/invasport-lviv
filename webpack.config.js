@@ -1,9 +1,13 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
-    all: './source/javascripts/all.js'
+    index: [
+      './source/javascripts/index.js',
+      './source/stylesheets/main.scss'
+    ],
   },
 
   resolve: {
@@ -29,10 +33,19 @@ module.exports = {
           presets: ['es2015']
         }
       },
+
+      // Load SCSS
       {
-        test   : /\.scss$/,
-        loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract(
+          "style",
+          "css!sass?sourceMap&includePaths[]=" + __dirname + "/node_modules"
+        )
       },
+
+      // Load plain-ol' vanilla CSS
+      { test: /\.css$/, loader: "style!css" },
+
       {
         test: /\.png$/,
         loader: "url-loader?mimetype=image/png"
@@ -40,7 +53,12 @@ module.exports = {
     ]
   },
 
+  plugins: [
+    new ExtractTextPlugin("stylesheets/app.css"),
+  ],
+
   sassLoader: {
     includePaths: [path.join(__dirname, "node_modules")]
   }
+
 };
