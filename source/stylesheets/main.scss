@@ -2,7 +2,9 @@
 @import '~normalize.css/normalize.css';
 
 @import "helpers/_syntax";
-
-body {
-  background-color: #dde;
-}
+@import "modules/_styles";
+@import "modules/_responsive";
+@import "modules/_skin1";
+@import "modules/_boxed";
+@import "modules/_full";
+@import "modules/_mega";
