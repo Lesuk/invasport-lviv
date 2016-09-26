@@ -39,7 +39,7 @@ module.exports = {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(
           "style",
-          "css!sass?sourceMap&includePaths[]=" + __dirname + "/node_modules"
+          "css!sass?sourceMap"
         )
       },
 
