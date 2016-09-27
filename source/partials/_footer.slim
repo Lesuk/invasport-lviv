@@ -1,4 +1,51 @@
-.footer-wrapper
+.outter-wrapper.footer-wrapper
+  .wrapper.clearfix
+    .col-1-4.widget
+      h3.widget-title
+        | Зв'яжіться з нами
+      ul.list-1
+        li
+          strong
+            | Телефон офісу:
+          br
+          | +380 93 83 23 238
+        li
+          a[href="#"]
+            | invasport@lviv.ua
+            
+    .col-1-4.widget
+      h3.widget-title
+        | Наша мета
+      p
+        | Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante
+    
+    .col-1-4.widget
+      h3.widget-title
+        | Робочі години
+      ul.open-hours
+        li
+          | Пон. - П'ятн.
+          span
+            | 9:00 - 18:00
+        li
+          | Святкові дні
+          span
+            | 10:00 - 15:00
+
+    .col-1-4.widget.last
+      h3.widget-title
+        | Де ми є
+      ul.list-1
+        li
+          strong
+            | Адреса:
+          br
+          |  вул. Генерала Грекова, 3 
+        li
+          strong
+            = link_to "На карті", "/contact.html"
+              
+/.footer-wrapper
   - if not data.settings.try(:site_author_image).nil?
     .author
       .image-wrapper
