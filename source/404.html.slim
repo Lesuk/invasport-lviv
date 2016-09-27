@@ -2,7 +2,29 @@
 directory_index: false
 ---
 
-h1
-  | 404
-h3
-  | Page not found
+.outter-wrapper.body-wrapper
+  .wrapper.ad-pad.clearfix
+    .col-3-4
+      h1
+        span
+          | 404
+        |  Сторінка не знайдена
+      p.lead
+        | На жаль, сторінку яку ви шукаєте не існує.
+        br
+        | Спробуйте знайти щось нове. 
+      form
+        input#name[type="text" name="name" placeholder="Пошук"]
+        input#send.btn-2[name="button" type="submit" value="Пошук"]
+        
+    aside.col-1-4.last
+      .widget
+        h3
+          | Швидкі посилання
+        ul.widget-list.list-1
+          li
+            = link_to "Головна сторінка", '/'
+          li
+            = link_to "Карта сайту", '/sitemap.html'
+          li
+            = link_to "Контакти", '/contact.html'

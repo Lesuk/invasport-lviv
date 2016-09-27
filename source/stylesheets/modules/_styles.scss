@@ -2825,6 +2825,14 @@ select, input[type=radio], input[type=checkbox] {
 	color: #f1042b;
 }
 
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
 .btn, .btn-2, .btn-3, input[type=button], input[type=submit], button, .option-set li a{
 	border: none;
 	padding: .5em 1.5em;
@@ -2843,7 +2851,7 @@ select, input[type=radio], input[type=checkbox] {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	border-radius: 2px;
-  background: url("../images/btn-bg.png") repeat-x 0 0;
+  background: url("/images/btn-bg.png") repeat-x 0 0;
 }
 
 a.small-btn, input[type=button].small-btn, input[type=submit].small-btn, .widget input[type=submit], ul.toggle li a.small-btn{

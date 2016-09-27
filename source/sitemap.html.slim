@@ -1,0 +1,7 @@
+- root_url = data.settings.site_url
+ul
+  - sitemap.resources.each do |page|
+    - if page.url =~ /\.html/ 
+      li
+        a href="#{root_url}/#{page.url}"
+          = "#{root_url}/#{page.url}"

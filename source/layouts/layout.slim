@@ -31,7 +31,10 @@ html.no-js lang=""
     = partial "partials/header-area"
     = partial "partials/navigation"
     
+    = yield
     
+    = partial "partials/breadcrumbs"
+    = partial "partials/footer"
     
     = javascript_include_tag :index
     = partial "partials/analytics"
