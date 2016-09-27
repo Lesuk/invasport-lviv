@@ -676,8 +676,9 @@ h1, h2, h3, .sport-rs-heading, cite, .price-cell:first-child p span, .big-count{
 /*
 04. LOGO AS TEXT ____________________________________________________________ */
 .logo.text{
-	font-family: 'chunkfiveregular';
-	font-weight: normal;
+	// font-family: 'chunkfiveregular';
+	font-family: 'Roboto', sans-serif;
+	font-weight: 700;
 }
 
 
@@ -743,8 +744,10 @@ a.toggle-btn:before,  a.accordion-btn:before{
    ========================================================================== */
 
 .logo.text{
+	max-width: initial;
 	line-height: 1;
-	font-size: 52px;
+	// font-size: 52px;
+	font-size: 32px;
 	text-decoration: none;
 }
 
