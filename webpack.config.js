@@ -34,6 +34,8 @@ module.exports = {
         }
       },
 
+      { test: require.resolve("jquery"), loader: "expose?$" },
+
       // Load SCSS
       {
         test: /\.scss$/,
@@ -58,6 +60,11 @@ module.exports = {
 
   plugins: [
     new ExtractTextPlugin("stylesheets/app.css"),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery"
+    }),
   ],
 
   sassLoader: {
