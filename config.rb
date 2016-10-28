@@ -7,11 +7,12 @@ Time.zone = 'UTC'
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
   # blog.prefix = "blog"
-
-  # Permalink format
-  blog.permalink = '{year}/{month}/{day}/{title}.html'
+  blog.layout = "article_layout"
   # Matcher for blog source files
   blog.sources = 'posts/{year}-{month}-{day}-{title}.html'
+  blog.new_article_template = 'source/article_template.erb'
+  # Permalink format
+  blog.permalink = '{category}/{slug}'
   blog.summary_length = 250
   blog.default_extension = '.md'
   blog.tag_template = 'tag.html'
@@ -19,8 +20,15 @@ activate :blog do |blog|
 
   # Enable pagination
   blog.paginate = true
-  blog.per_page = 10
+  blog.per_page = 5
   blog.page_link = 'page/{num}'
+
+  blog.custom_collections = {
+    category: {
+      link: '/categories/{category}.html',
+      template: '/category.html'
+    }
+  }
 end
 
 page '/feed.xml', layout: false

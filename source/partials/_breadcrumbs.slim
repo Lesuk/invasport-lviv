@@ -2,7 +2,8 @@
   .wrapper
     a.fa[href="/"]
       | &#xf015;
-    a[href="/"]
-      | Home
-    a[href="#"]
-      | Page
+      
+    = link_to "Головна", "/"
+    
+    - if content_for?(:crumb_links)
+      = yield_content :crumb_links

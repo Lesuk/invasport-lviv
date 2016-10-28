@@ -50,3 +50,25 @@ def analytics_account
   rescue NameError
     nil
 end
+
+def build_categories(articles)
+  categories = []
+  articles.each do |article|
+    # category = article.metadata[:page]['category']
+    category = article.data.category
+    categories.push(category) unless categories.include? category
+  end
+  categories
+end
+
+def category_name(category_slug)
+  data.categories[category_slug]['name']
+end
+
+def article_category_slug(article)
+  article.data.category.present? ? article.data.category.to_s : 'unknown'
+end
+
+def article_category_name(article)
+  category_name(article_category_slug(article))
+end

@@ -48,59 +48,17 @@ div.outter-wrapper.divider
   .wrapper.ad-pad.clearfix
     h3
       | Останні публікації
-    .col-1-4
-      .mosaic-block.circle
-        a.mosaic-overlay.fancybox.link[href="post.html" title="Insert Your Title" style="display: inline; opacity: 0;"]
-        .mosaic-backdrop[style="display: block;"]
-          .corner.date
-            | 16 Aug
-          img[src="images/fill-3.jpg" alt="Mock"]
-      h6.title
-        a[href="post.html"]
-          | Pre season camp success
-      p
-        | Morbi leo risus, porta ac conse ctetur ac, vestiosite Duis mollis, est non commodo luctus, nisi erat porttitor ligula soren …
-        a.read-more[href="post.html"]
-          | More
-    .col-1-4
-      .mosaic-block.circle
-        a.mosaic-overlay.fancybox.link[href="post.html" title="Insert Your Title" style="display: inline; opacity: 0;"]
-        .mosaic-backdrop[style="display: block;"]
-          .corner.date
-            | 26 Aug
-          img[src="images/fill-3.jpg" alt="Mock"]
-      h6.title
-        a[href="post.html"]
-          | Nominated club of the year
-      p
-        | Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Maecenas sed diam eget risus varius blandit sit amet non …
-        a.read-more[href="post.html"]
-          | More
-    .col-1-4
-      .mosaic-block.circle
-        a.mosaic-overlay.fancybox.link[href="post.html" title="Insert Your Title" style="display: inline;"]
-        .mosaic-backdrop[style="display: block;"]
-          .corner.date
-            | 17 Sept
-          img[src="images/fill-3.jpg" alt="Mock"]
-      h6.title
-        a[href="post.html"]
-          | Road to the grand finals
-      p
-        | Vestiosite Duis mollis, est non commodo luctus, nisi erat porttitor sed diam eget risus varius blandit sit amet non magna …
-        a.read-more[href="post.html"]
-          | More
-    .col-1-4.last
-      .mosaic-block.circle
-        a.mosaic-overlay.fancybox.link[href="post.html" title="Insert Your Title" style="display: inline;"]
-        .mosaic-backdrop[style="display: block;"]
-          .corner.date
-            | 24 Sept
-          img[src="images/fill-3.jpg" alt="Mock"]
-      h6.title
-        a[href="post.html"]
-          | Club facilities upgrade
-      p
-        | Mollis, est non commodo luctus, nisi erat porttitor ligula. Maecenas sed diam eget risus varius blandit sit amet non …
-        a.read-more[href="post.html"]
-          | More
+
+    - blog.articles[0...4].each_with_index do |article, index|
+      div class="col-1-4 #{index == 3 ? 'last' : ''}"
+        .mosaic-block.circle
+          = link_to "", article, class: "mosaic-overlay link fancybox", style: "display: inline; opacity: 0;", title: article.title
+          .mosaic-backdrop[style="display: block;"]
+            .corner.date = format_date(article.date)
+            img src="http://res.cloudinary.com/demo/image/fetch/c_fill,w_250,h_167/#{article.data.image_source}"
+        
+        h6.title = link_to article.title, article
+        
+        div.summary-block
+          = strip_tags article.summary(100)
+          = link_to "Читати далі", article, class: "read-more"
