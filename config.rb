@@ -2,14 +2,14 @@
 # Blog settings
 ###
 
-Time.zone = 'UTC'
+Time.zone = 'Europe/Kiev'
 
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
   # blog.prefix = "blog"
   blog.layout = "article_layout"
   # Matcher for blog source files
-  blog.sources = 'posts/{year}-{month}-{day}-{title}.html'
+  blog.sources = 'articles/{year}-{month}-{day}-{title}.html'
   blog.new_article_template = 'source/article_template.erb'
   # Permalink format
   blog.permalink = '{category}/{slug}'
@@ -95,6 +95,8 @@ activate :syntax
 
 # Activate Directory Indexes
 activate :directory_indexes
+
+activate :i18n, :langs => [:uk]
 
 # Activate Deploy
 activate :deploy do |deploy|
