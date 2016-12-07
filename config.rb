@@ -39,6 +39,7 @@ activate :blog do |blog|
   blog.sources = ":slug.html"
   blog.permalink = ":slug"
   blog.default_extension = ".md"
+  blog.publish_future_dated = true
 
   # Enable pagination
   blog.paginate = true
@@ -53,6 +54,7 @@ activate :blog do |blog|
   blog.sources = ":slug.html"
   blog.permalink = ":slug"
   blog.default_extension = ".md"
+  blog.publish_future_dated = true
 end
 
 activate :blog do |blog|
@@ -63,6 +65,7 @@ activate :blog do |blog|
   blog.permalink = ":slug"
   blog.new_article_template = File.expand_path('source/templates/sport_template.erb', File.dirname(__FILE__))
   blog.default_extension = ".md"
+  blog.publish_future_dated = true
 end
 
 ###
