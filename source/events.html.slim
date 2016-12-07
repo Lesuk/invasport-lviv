@@ -1,0 +1,58 @@
+---
+blog: events
+pageable: true
+per_page: 5
+--- 
+
+- title "Події"
+
+- content_for :crumb_links
+  = link_to 'Події', '/events.html'
+
+.outter-wrapper.body-wrapper
+  .wrapper.ad-pad.blog-roll.clearfix
+    
+    /! Start Main Column
+    .col-3-4
+      - page_articles.each do |event|
+        /! Start post
+        .post-excerpt.clearfix
+          .col-1-3.mosaic-block.circle
+            = link_to "", event, class: "mosaic-overlay link", style: "display: inline; opacity: 0;", title: event.title
+            .mosaic-backdrop[style="display: block;"]
+              - img_src = "http://res.cloudinary.com/invasport/image/upload/c_fill,h_167,w_250/v1481134803/#{event.data.image_source}"
+              img src="#{img_src}"
+          .col-2-3.last
+            h3 = link_to event.title, event
+            
+            div.summary-block
+              = strip_tags event.summary
+              = link_to "Читати далі", event, class: "read-more"
+      
+      - if paginate
+        /! Start Pagination
+        .clearfix
+          ul.pagination
+            - if next_page
+              li.left.stay
+                a[href="#{next_page.url}"]
+                  span.fa
+                    | &#xf104;
+                  |  Попередня сторінка
+            - if prev_page
+              li.right.stay
+                a[href="#{prev_page.url}"]
+                  | Наступна сторінка 
+                  span.fa
+                    | &#xf105;
+
+              
+    / ! Start Main Sidebar
+    aside.col-1-4.last
+      .widget
+        h3.widget-title
+          | Останні публікації
+        ul.list-1.widget-list
+          - blog('blog').articles[0...5].each do |article|
+            li
+              = link_to article.title, article

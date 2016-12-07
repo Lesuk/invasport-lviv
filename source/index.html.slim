@@ -5,40 +5,29 @@
       h3
         | Запрошуємо до Нашого Центру
       p.lead
-        | Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam id dolor id nibh ultricies vehicula ut id elit.
+        | Комунальний заклад Львівської обласної ради "Львівський регіональний центр з фізичної культури і спорту інвалідів "Інваспорт".
       p
         | Morbi leo risus, porta ac conse ctetur ac, vestiosite Duis mollis, est non commodo luctus, nisi erat porttitor ligula est non commodo sed diam. Donec id elit non mi porta gravida at eget metus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere consectetur est at lobortis. Curabitur blandit tempus porttitor. Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus commodo.
       p
         img[src="images/sig.jpg" alt="Fill"]
         br
         strong
-          | John Doe - Президент Центру
+          | Віктор Коваленко - Президент Центру
     
     .col-1-3.last
       h3
         | Найближчі події
       ul.widget-event-list
-        li
-          img.left.stay[src="images/thumb-3.jpg" alt="mock"]
-          .date
-            | 15 Aug
-          h6.title
-            a[href="#"]
-              | Melbourne Sharks VS Our Team - Home Game
-        li
-          img.left.stay[src="images/thumb-2.jpg" alt="mock"]
-          .date
-            | 26 Aug
-          h6.title
-            a[href="#"]
-              | Quarter Finals - Tigers VS Our Team - Home Game
-        li
-          img.left.stay[src="images/thumb-1.jpg" alt="mock"]
-          .date
-            | 31 Aug
-          h6.title
-            a[href="#"]
-              | Sydney VS Our Team - Away Game
+        - blog('events').articles[0...4].each do |event|
+          li
+            - img_src = "http://res.cloudinary.com/invasport/image/upload/c_fill,h_80,w_80/v1481134803/#{event.data.image_source}"
+            img.left.stay[src="#{img_src}" alt="#{event.title}"]
+            .date
+              = format_date(event.date)
+            h6.title
+              = link_to event.title, event
+
+      = link_to "Переглянути всі події", "/events.html", class: "block-link center"
 
 / Divider
 div.outter-wrapper.divider

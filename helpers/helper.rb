@@ -1,5 +1,5 @@
 def format_date(date)
-  I18n.localize(date, :format => "%B %d, %Y")
+  I18n.localize(date, :format => "%e %b %Y")
 end
 
 def site_title_logo

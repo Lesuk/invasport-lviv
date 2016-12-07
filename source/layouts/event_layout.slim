@@ -1,0 +1,38 @@
+---
+blog: events
+pageable: true
+---
+
+- content_for :crumb_links
+  = link_to 'Події', '/events.html'
+  = link_to current_article.title, current_article
+  
+= wrap_layout :layout do
+  .outter-wrapper.body-wrapper
+    .wrapper.blog-roll.ad-pad.clearfix
+      .col-3-4
+        .clearfix.post
+          h1.title = current_article.title
+          
+          - if (not current_page.data.try(:image_source).nil?) && (current_page.data.show_image)
+            .mosaic-block.circle
+              .mosaic-backdrop[style="display: block;"]
+                img src="http://res.cloudinary.com/invasport/image/upload/c_fill,h_500,w_900/v1481134803/#{current_article.data.image_source}"
+          
+          h6.meta
+            span.date = format_date(current_article.date)
+          
+          = yield
+        
+      aside.col-1-4.right.last
+      
+        .widget
+          h3.widget-title
+            | Найближчі події
+          ul.list-1.widget-list
+            - blog('events').articles[0...5].each do |article|
+              li
+                = link_to article.title, article
+
+          = link_to "Переглянути всі події", "/events.html", class: "block-link center"
+          

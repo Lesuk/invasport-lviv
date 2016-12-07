@@ -33,6 +33,20 @@ activate :blog do |blog|
 end
 
 activate :blog do |blog|
+  blog.name = "events"
+  blog.prefix = "events"
+  blog.layout = "event_layout"
+  blog.sources = ":slug.html"
+  blog.permalink = ":slug"
+  blog.default_extension = ".md"
+
+  # Enable pagination
+  blog.paginate = true
+  blog.per_page = 5
+  blog.page_link = 'page/{num}'
+end
+
+activate :blog do |blog|
   blog.name = "pages"
   blog.prefix = "pages"
   blog.layout = "page_layout"
