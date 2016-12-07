@@ -3,7 +3,7 @@ title: Міжнародний День шахів-2016
 slug: mishnarodnui-den-shahiv-2016
 date: 2016-10-27 16:58 UTC
 category: shahu
-image_source: http://i.imgur.com/ImfoGXu.jpg
+image_source: ImfoGXu_zwpx9u.jpg
 ---
 
 <p class="lead">На відзначення міжнародного Дня шахів, провідні шахісти львівського "Інваспорту", спортсмени з порушенням зору, 21 липня 2016 року провели шаховий турнір.</p>

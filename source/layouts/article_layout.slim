@@ -14,9 +14,11 @@ pageable: true
         .clearfix.post
           h1.title = current_article.title
           
-          .mosaic-block.circle
-            .mosaic-backdrop[style="display: block;"]
-              img src="http://res.cloudinary.com/demo/image/fetch/c_fill,w_900,h_500/#{current_article.data.image_source}"
+          - if not current_article.data.try(:image_source).nil?          
+            .mosaic-block.circle
+              .mosaic-backdrop[style="display: block;"]
+                - img_src = "http://res.cloudinary.com/invasport/image/upload/c_fill,h_500,w_900/#{current_article.data.image_source}"
+                img src="#{img_src}"
           
           h6.meta
             span.date = format_date(current_article.date)

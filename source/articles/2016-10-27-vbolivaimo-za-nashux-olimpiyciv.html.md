@@ -3,7 +3,7 @@ title: Вболіваймо за наших земляків - львівськ�
 slug: vbolivaimo-za-nashux-olimpiyciv
 date: 2016-10-27 18:12 UTC
 category: paralimpiada
-image_source: http://i.imgur.com/DA9PwBA.jpg
+image_source: DA9PwBA_p2fxrl.jpg
 ---
 
 <p class="lead">Подаємо розпис змагань за участю наших спортсменів.</p>

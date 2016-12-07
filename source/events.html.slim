@@ -20,7 +20,7 @@ per_page: 5
           .col-1-3.mosaic-block.circle
             = link_to "", event, class: "mosaic-overlay link", style: "display: inline; opacity: 0;", title: event.title
             .mosaic-backdrop[style="display: block;"]
-              - img_src = "http://res.cloudinary.com/invasport/image/upload/c_fill,h_167,w_250/v1481134803/#{event.data.image_source}"
+              - img_src = "http://res.cloudinary.com/invasport/image/upload/c_fill,h_167,w_250/#{event.data.image_source}"
               img src="#{img_src}"
           .col-2-3.last
             h3 = link_to event.title, event

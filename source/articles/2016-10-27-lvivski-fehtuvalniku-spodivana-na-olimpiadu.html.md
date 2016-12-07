@@ -3,7 +3,7 @@ title: Львівські фехтувальники розповіли, з як
 slug: lvivski-fehtuvalniki-rozpovili-z-jakimi-spodivannjami-zbirajutsja-na-paralimpiadu
 date: 2016-10-27 17:41 UTC
 category: fehtuvana
-image_source: https://i.ytimg.com/vi/0Jnku_JFsX0/maxresdefault.jpg
+image_source: maxresdefault_tjzris.jpg
 ---
 
 <p class="lead">Українські паралімпійці готуються перейняти естафету у Ріо-де-Жанейро. У Бразилію наступного тижня вирушить «синьо-жовта» команда із 155 учасників. Серед них — дев’ятеро львів’ян. У фехтувальному десанті зі Львова троє спортсменів: Антон Дацко, Андрій Демчук та Наталя Морквич.</p>

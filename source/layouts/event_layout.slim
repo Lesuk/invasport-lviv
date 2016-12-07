@@ -17,7 +17,7 @@ pageable: true
           - if (not current_page.data.try(:image_source).nil?) && (current_page.data.show_image)
             .mosaic-block.circle
               .mosaic-backdrop[style="display: block;"]
-                img src="http://res.cloudinary.com/invasport/image/upload/c_fill,h_500,w_900/v1481134803/#{current_article.data.image_source}"
+                img src="http://res.cloudinary.com/invasport/image/upload/c_fill,h_500,w_900/#{current_article.data.image_source}"
           
           h6.meta
             span.date = format_date(current_article.date)
