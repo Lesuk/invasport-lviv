@@ -1,0 +1,32 @@
+---
+blog: pages 
+pageable: false
+---
+
+- content_for :crumb_links
+  = link_to current_page.data.title, current_page
+  
+= wrap_layout :layout do
+  .outter-wrapper.body-wrapper
+    .wrapper.blog-roll.ad-pad.clearfix
+      .col-3-4
+        .clearfix.post
+          h1.title = current_page.data.title
+          
+          - if not current_page.data.try(:image_source).nil?
+            .mosaic-block.circle
+              .mosaic-backdrop[style="display: block;"]
+                img src="http://res.cloudinary.com/demo/image/fetch/c_fill,w_900,h_500/#{current_page.data.image_source}"
+          
+          = yield
+
+
+      aside.col-1-4.right.last
+      
+        .widget
+          h3.widget-title
+            | Останні публікації
+          ul.list-1.widget-list
+            - blog("blog").articles[0...5].each do |article|
+              li
+                = link_to article.title, article

@@ -7,10 +7,11 @@ Time.zone = 'Europe/Kiev'
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
   # blog.prefix = "blog"
+  blog.name = "blog"
   blog.layout = "article_layout"
   # Matcher for blog source files
   blog.sources = 'articles/{year}-{month}-{day}-{title}.html'
-  blog.new_article_template = 'source/article_template.erb'
+  blog.new_article_template = File.expand_path('source/templates/article_template.erb', File.dirname(__FILE__))
   # Permalink format
   blog.permalink = '{category}/{slug}'
   blog.summary_length = 250
@@ -31,9 +32,24 @@ activate :blog do |blog|
   }
 end
 
-page '/feed.xml', layout: false
-page '/sitemap.xml', layout: false
-page '/robots.txt', layout: false
+activate :blog do |blog|
+  blog.name = "pages"
+  blog.prefix = "pages"
+  blog.layout = "page_layout"
+  blog.sources = ":slug.html"
+  blog.permalink = ":slug"
+  blog.default_extension = ".md"
+end
+
+activate :blog do |blog|
+  blog.name = "sports"
+  blog.prefix = "sports"
+  blog.layout = "sport_layout"
+  blog.sources = ':slug.html'
+  blog.permalink = ":slug"
+  blog.new_article_template = File.expand_path('source/templates/sport_template.erb', File.dirname(__FILE__))
+  blog.default_extension = ".md"
+end
 
 ###
 # Page options, layouts, aliases and proxies
@@ -52,9 +68,13 @@ page '/robots.txt', layout: false
 #   page "/admin/*"
 # end
 
-# Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
-# proxy "/this-page-has-no-template.html", "/template-file.html", locals: {
-#  which_fake_page: "Rendering a fake page with a local variable" }
+page '/feed.xml', layout: false
+page '/sitemap.xml', layout: false
+page '/robots.txt', layout: false
+
+# ["tom", "dick", "harry"].each do |name|
+#   proxy "/about/#{name}.html", "/about/template.html", :locals => { :person_name => name }, :ignore => true
+# end
 
 # Markdown settings
 set :markdown_engine, :kramdown

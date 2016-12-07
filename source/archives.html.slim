@@ -7,7 +7,7 @@ pageable: true
 h1
   | Archives
 ul.archive-list
-  - blog.articles.each do |article|
+  - blog('blog').articles.each do |article|
     li
       span.archive-posted-date-wrapper
         i.fa.fa-clock-o

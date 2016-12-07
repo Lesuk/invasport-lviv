@@ -49,7 +49,7 @@ div.outter-wrapper.divider
     h3
       | Останні публікації
 
-    - blog.articles[0...4].each_with_index do |article, index|
+    - blog('blog').articles[0...4].each_with_index do |article, index|
       div class="col-1-4 #{index == 3 ? 'last' : ''}"
         .mosaic-block.circle
           = link_to "", article, class: "mosaic-overlay link fancybox", style: "display: inline; opacity: 0;", title: article.title

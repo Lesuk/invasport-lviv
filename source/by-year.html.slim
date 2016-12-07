@@ -3,6 +3,6 @@
 h1
   | Articles By Year
 ul.archive-list
-  - blog.articles.group_by { |a| a.date.year }.each do |year, articles|
+  - blog('blog').articles.group_by { |a| a.date.year }.each do |year, articles|
     li
       = link_to "#{year} (#{articles.size})", blog_year_path(year)

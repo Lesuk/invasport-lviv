@@ -12,12 +12,54 @@
             a[href="/"]
               | Головна
           
+          li
+            a.megamenu_drop[href="#"]
+              | Про нас
+              em.fa
+                | &nbsp;&#xf107;
+            ul
+              - blog('pages').articles.group_by{ |p| p.data.nav_tab }.select{ |t| t == 'about' }.each do |tab, pages|
+                - pages.sort_by{ |p| p.data.title }.each do |page|
+                  li
+                    = link_to page.title, "/pages/#{page.slug}"
+              
+          li
+            a.megamenu_drop[href="#"]
+              | Спорт та реабілітація
+              em.fa
+                | &nbsp;&#xf107;
+            ul
+              li
+                a href="#"
+                  | Календар змагань
+              - blog('pages').articles.group_by{ |p| p.data.nav_tab }.select{ |t| t == 'sport-reabilitacia' }.each do |tab, pages|
+                - pages.sort_by{ |p| p.data.title }.each do |page|
+                  li
+                    = link_to page.title, "/pages/#{page.slug}"
+
+          li
+            a.megamenu_drop[href="#"]
+              | Види спорту
+              em.fa
+                | &nbsp;&#xf107;
+            ul
+              - blog('sports').articles.sort_by{|a| a.data.title }.each do |sport|
+                li
+                  = link_to sport.title, "/sports/#{sport.slug}"
+          
+          li
+            a.megamenu_drop[href="#"]
+              | Спортсмени
+              em.fa
+                | &nbsp;&#xf107;
+            ul
+              li
+                = link_to "Найкращий спортсмен року", "/pages/najkrashchij-sportsmen-roku"
+              li
+                = link_to "Спортсмени Інваспорту", "/sportsmeni.html"
+
           li.nav-parent
             = link_to 'Публікації', '/blog.html'
-              
-          / li
-          /   a.megamenu_drop[href="/"]
-          /     | Main Events 
-          /     em.fa
-          /       | &#xf107;
-            
+          
+          li.nav-parent
+            = link_to 'Контакти', '/contact.html'

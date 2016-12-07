@@ -1,4 +1,5 @@
 ---
+blog: blog
 pageable: true
 per_page: 5
 --- 
@@ -50,7 +51,7 @@ per_page: 5
       .widget
         h3.widget-title Категорії
         ul.tag-cloud
-          - categories = build_categories(blog.articles)
+          - categories = build_categories(blog('blog').articles)
           - if categories.any?
             - categories.each do |category|
               li
