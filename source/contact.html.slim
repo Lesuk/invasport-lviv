@@ -1,0 +1,52 @@
+---
+pageable: false
+--- 
+
+- title "Контакти"
+
+- content_for :crumb_links
+  = link_to 'Контакти', '/contact.html'
+
+.outter-wrapper.body-wrapper
+  .wrapper.ad-pad.clearfix
+    .col-3-4
+      h1 Напишіть нам
+      p.lead
+        | Якщо Ви хочете оримати додаткову інформацію, або маєте запитання, будь-ласка заповніть форму нижче, надішліть і ми відповімо Вам якнайшвидше.
+      
+      /! Start Form
+      form#contactform action="#" method="post"
+        table.tableless
+          tbody
+            tr
+              td
+                input#name name="name" placeholder=("Ваше ім'я (обов'язково)") type="text"
+            tr
+              td
+                input#email name="email" placeholder=("Ваш email (обов'язково)") type="email"
+            tr
+              td
+                textarea#message cols="20" name="message" placeholder=("Ваше повідомлення") rows="5" 
+                
+        input#send.btn-2 name="button" type="submit" value=("Надіслати")
+      #response
+      /! Finish Main Content
+
+    /! Start Main Sidebar
+    aside.col-1-4.last
+      .widget
+        h3 Шукайте нас тут:
+        ul.widget-list.list-1
+          li
+            = link_to "facebook.com/invasport.lviv.ukraine", "https://www.facebook.com/invasport.lviv.ukraine/"
+          li 
+            | вул. Генерала Грекова, 3
+            br
+            | м. Львів, 
+    /! Finish Sidebar
+
+
+.outter-wrapper style="font-size: 0;"
+  .wrapper.ad-pad.clearfix
+    h1 Ми на карті
+  iframe frameborder="0" allowfullscreen="true" style="border:0" height="400" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2572.561255769631!2d24.01771489323355!3d49.85070090371039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473adda08085efa9%3A0xaaa14befc4ed408a!2sHenerala+Hrekova+St%2C+3%2C+L&#39;viv%2C+Lviv+Oblast!5e0!3m2!1sen!2sua!4v1481117892980" 
