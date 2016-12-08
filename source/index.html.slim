@@ -20,7 +20,7 @@
       ul.widget-event-list
         - blog('events').articles[0...4].each do |event|
           li
-            - img_src = "http://res.cloudinary.com/invasport/image/upload/c_fill,h_80,w_80/#{event.data.image_source}"
+            - img_src = "https://res.cloudinary.com/invasport/image/upload/c_fill,h_80,w_80/#{event.data.image_source}"
             img.left.stay[src="#{img_src}" alt="#{event.title}"]
             .date
               = format_date(event.date)
@@ -44,7 +44,7 @@ div.outter-wrapper.divider
           = link_to "", article, class: "mosaic-overlay link fancybox", style: "display: inline; opacity: 0;", title: article.title
           .mosaic-backdrop[style="display: block;"]
             .corner.date = format_date(article.date)
-            - img_src = "http://res.cloudinary.com/invasport/image/upload/c_fill,h_167,w_250/#{article.data.image_source}"
+            - img_src = "https://res.cloudinary.com/invasport/image/upload/c_fill,h_167,w_250/#{article.data.image_source}"
             img src="#{img_src}"
         
         h6.title = link_to article.title, article
